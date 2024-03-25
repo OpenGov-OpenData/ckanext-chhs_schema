@@ -1,0 +1,18 @@
+[run]
+branch = True
+omit =
+    */tests/*
+    /tmp/*
+concurrency = thread
+parallel = True
+
+
+[report]
+omit =
+    */site-packages/*
+    */python?.?/*
+    */ckan/*
+
+
+[html]
+directory = ./reports/htmlcov

@@ -1,0 +1,232 @@
+scheming_version: 1
+dataset_type: dataset
+about: California Health and Human Services (CHHS) Data Model
+about_url: https://github.com/OpenGov-OpenData/ckanext-chhs_schema
+
+
+## CKAN Package/Dataset Fields
+dataset_fields:
+
+## "title"
+#  Use core CKAN field for title
+- field_name: title
+  label: Title
+  preset: title
+  form_placeholder: eg. A descriptive title
+  required: True
+
+## "name"
+#  Use core CKAN field for dataset URL slug, generated from title with JS
+- field_name: name
+  label: URL
+  preset: dataset_slug
+  form_placeholder: eg. my-dataset
+
+## "notes"
+#  Use core CKAN field for notes
+- field_name: notes
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: eg. Some useful notes about the data
+  required: True
+
+## "keywords"
+#  Use core CKAN free-form tag field
+- field_name: tag_string
+  label: Tags
+  preset: tag_string_autocomplete
+  form_placeholder: Meaningful tags
+  required: True
+
+## "department"
+#  The Department field will be mapped to CKAN organizations
+- field_name: owner_org
+  label: Department
+  preset: dataset_organization
+
+## "contact_email"
+- field_name: contact_email
+  label: Contact Email
+  display_snippet: email.html
+  form_placeholder: eg. opendata@oshpd.ca.gov
+  required: True
+
+## "author"
+- field_name: author
+  label: Program
+  display_property: dc:creator
+  form_placeholder: eg. Office of Statewide Health Planning and Development
+  required: True
+
+## "homepage_url"
+- field_name: program_web_page
+  label: Homepage URL
+  form_placeholder: http://example.com
+  display_property: foaf:homepage
+  display_snippet: link.html
+  required: True
+
+## "temporalNotes"
+#  fluent markdown field
+- field_name: temporal_coverage
+  label: Temporal Coverage
+  form_snippet: markdown.html
+  required: True
+
+## "spatial"
+#  fluent text field
+- field_name: geo_coverage
+  label: Spatial/Geographic Coverage
+  form_snippet: markdown.html
+
+## "geographic_granularity"
+#  fluent markdown field
+- field_name: geographic_granularity
+  label: Geographic Granularity
+  preset: geographic_granularity_choices
+  # copied from select preset because we're using preset for controlled list
+  form_snippet: select.html
+  display_snippet: select.html
+  required: True
+  validators: scheming_required scheming_choices
+
+## "language"
+- field_name: language
+  label: Language
+  form_snippet: text.html
+  required: True
+
+## "accrualPeriodicity"
+#  ISO8601FTW
+- field_name: accrual_periodicity
+  label: Frequency
+  preset: select
+  required: True
+  choices:
+  - label: Other
+    value: other
+  - label: Point in time
+    value: point in time
+  - label: Daily
+    value: daily
+  - label: Weekly
+    value: weekly
+  - label: Biweekly
+    value: biweekly
+  - label: Monthly
+    value: monthly
+  - label: Bimonthly
+    value: bimonthly
+  - label: Quarterly
+    value: quarterly
+  - label: Annually
+    value: annually
+
+## "de_identification_method"
+#  fluent markdown field
+- field_name: de_identification_method
+  label: De-Identification Method
+  form_snippet: markdown.html
+
+## "url"
+#  Use core CKAN datase url field
+- field_name: url
+  label: Source Link
+  form_placeholder: http://example.com/dataset.json
+  display_property: foaf:homepage
+  display_snippet: link.html
+
+## "data_collection_tool"
+#  fluent markdown field
+- field_name: data_collection_tool
+  label: Data Collection Tool
+  form_snippet: markdown.html
+
+## "license_id"
+- field_name: data_license
+  label: License
+  preset: select
+  required: True
+  display_snippet: terms.html
+  choices:
+  - label: See Terms of Use
+    value: Terms of Use
+
+## "limitations"
+- field_name: limitations
+  label: Limitations
+  preset: select
+  required: True
+  choices:
+  - label: Use of this data is subject to the CHHS Terms of Use and any copyright and proprietary notices incorporated in or accompanying the individual files.
+    value: Limitations
+
+## "additional_limitations"
+#  fluent markdown field
+- field_name: additional_limitations
+  label: Additional Limitations
+  form_snippet: markdown.html
+
+## "additional_information"
+#  fluent markdown field
+- field_name: additional_information
+  label: Additional Information
+  form_snippet: markdown.html
+
+## "related_resources"
+#  fluent markdown field
+- field_name: related_resources
+  label: Related Resources
+  form_snippet: markdown.html
+
+## "secondary_sources"
+#  fluent markdown field
+- field_name: secondary_sources
+  label: Secondary Sources
+  form_snippet: markdown.html
+
+## "citation"
+#  fluent markdown field
+- field_name: citation
+  label: Citation
+  form_snippet: markdown.html
+
+## "twitter checkbox"  
+- field_name: twitter_popup
+  label: Show Twitter Popup
+  preset: multiple_checkbox
+  choices:
+    - label: Enable Twitter Popup
+      value: Twitter_Popup
+
+
+## CKAN Resource Fields
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+## "title"
+#  Core CKAN resource field "name"
+- field_name: name
+  label: Title
+  form_placeholder: eg. January 2015 Gold Prices
+
+## "description"
+#  Core CKAN resource field "description"
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Some useful notes about the data
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete
+
+- field_name: accept_popup
+  label: Terms of Use
+  preset: multiple_checkbox
+  choices:
+    - label: Display Popup
+      value: Display

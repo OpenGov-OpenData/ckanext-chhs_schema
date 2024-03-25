@@ -1,0 +1,25 @@
+scheming_presets_version: 1
+about: Scheming presets for California Health and Human Services (CHHS) Data Model
+about_url: https://github.com/OpenGov-OpenData/ckanext-chhs_schema
+
+presets:
+
+- preset_name: geographic_granularity_choices
+  values:
+    choices:
+    - label: Other
+      value: other
+    - label: Statewide
+      value: statewide
+    - label: Regional
+      value: regional
+    - label: County
+      value: county
+    - label: Medical Service Study Area
+      value: medical service study area
+    - label: ZIP Code
+      value: zip code
+    - label: Census Tract
+      value: census tract
+    - label: Location Point
+      value: location point

@@ -1,0 +1,23 @@
+chhs-schema-page-js:
+  filter: rjsmin
+  output: chhs/%(version)s_chhs.js
+  extra:
+    preload:
+      - base/main
+  contents:
+    - js/resource_page_popup.js
+
+chhs-schema-js:
+  filter: rjsmin
+  output: chhs/%(version)s_chhs.js
+  extra:
+    preload:
+      - base/main
+  contents:
+    - js/resource_popup.js
+
+chhs-schema-css:
+  filter: cssrewrite
+  contents:
+    - css/resource_popup.css
+  output: chhs/%(version)s_chhs.css
