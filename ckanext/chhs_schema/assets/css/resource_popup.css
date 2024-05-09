@@ -27,3 +27,7 @@
   right: 20px;
   cursor: pointer;
 }
+
+.table-autofit {
+  table-layout: auto;
+}
