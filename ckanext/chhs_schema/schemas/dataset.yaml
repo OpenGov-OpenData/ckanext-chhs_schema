@@ -191,14 +191,6 @@ dataset_fields:
   label: Citation
   form_snippet: markdown.html
 
-## "twitter checkbox"  
-- field_name: twitter_popup
-  label: Show Twitter Popup
-  preset: multiple_checkbox
-  choices:
-    - label: Enable Twitter Popup
-      value: Twitter_Popup
-
 
 ## CKAN Resource Fields
 resource_fields:

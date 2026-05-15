@@ -10,7 +10,7 @@ else:
 
 
 def is_data_dict_active(ddict):
-    """"Returns True if data dictionary is populated"""
+    """Returns True if data dictionary is populated"""
     for col in ddict:
         info = col.get('info', {})
         if info.get('label') or info.get('notes'):
